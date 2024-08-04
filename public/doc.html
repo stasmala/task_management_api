@@ -92,14 +92,16 @@
 
 
 
-<div class="markdown prose w-full break-words dark:prose-invert light"><p>Вот инструкция по вашему API с примерами запросов и ответов для каждого эндпоинта. Эти примеры помогут вам протестировать и использовать ваше API.</p><hr><h2>API Документация</h2><h3>1. Регистрация пользователя</h3><p><strong>POST /register</strong></p><p><strong>Описание:</strong>
+<div class="markdown prose w-full break-words dark:prose-invert light"><hr><h2>API Документация</h2><h3>1. Регистрация пользователя</h3><p><strong>POST /api/register</strong></p><p><strong>Описание:</strong>
     Регистрация нового пользователя.</p><p><strong>Запрос:</strong></p><pre><div class="dark bg-gray-950 rounded-md border-[0.5px] border-token-border-medium"><div class="overflow-y-auto p-4" dir="ltr"><code class="!whitespace-pre hljs language-http">POST /api/register
 Content-Type: application/json
+Accept: application/json
 </code></div></div></pre><p><strong>Тело запроса:</strong></p><pre><div class="dark bg-gray-950 rounded-md border-[0.5px] border-token-border-medium">
 <div class="overflow-y-auto p-4" dir="ltr"><code class="!whitespace-pre hljs language-json"><span class="hljs-punctuation">{</span>
-    <span class="hljs-attr">"name"</span><span class="hljs-punctuation">:</span> <span class="hljs-string">"John Doe"</span><span class="hljs-punctuation">,</span>
-    <span class="hljs-attr">"email"</span><span class="hljs-punctuation">:</span> <span class="hljs-string">"john@example.com"</span><span class="hljs-punctuation">,</span>
-    <span class="hljs-attr">"password"</span><span class="hljs-punctuation">:</span> <span class="hljs-string">"password"</span>
+    <span class="hljs-attr">"name"</span><span class="hljs-punctuation">:</span> <span class="hljs-string">"Test"</span><span class="hljs-punctuation">,</span>
+    <span class="hljs-attr">"email"</span><span class="hljs-punctuation">:</span> <span class="hljs-string">"test@example.com"</span><span class="hljs-punctuation">,</span>
+    <span class="hljs-attr">"password"</span><span class="hljs-punctuation">:</span> <span class="hljs-string">"passwordtest"</span>
+    <span class="hljs-attr">"password_confirmation"</span><span class="hljs-punctuation">:</span> <span class="hljs-string">"passwordtest"</span>
 <span class="hljs-punctuation">}</span>
 </code></div></div></pre><p><strong>Ответ:</strong></p><ul><li><strong>Успех (201 Created):</strong></li></ul><pre><div class="dark bg-gray-950 rounded-md border-[0.5px] border-token-border-medium"><div class="overflow-y-auto p-4" dir="ltr"><code class="!whitespace-pre hljs language-json"><span class="hljs-punctuation">{</span>
     <span class="hljs-attr">"message"</span><span class="hljs-punctuation">:</span> <span class="hljs-string">"User registered successfully."</span>
@@ -110,9 +112,10 @@ Content-Type: application/json
         <span class="hljs-attr">"email"</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">[</span><span class="hljs-string">"The email has already been taken."</span><span class="hljs-punctuation">]</span>
     <span class="hljs-punctuation">}</span>
 <span class="hljs-punctuation">}</span>
-</code></div></div></pre><hr><h3>2. Авторизация пользователя</h3><p><strong>POST /login</strong></p><p><strong>Описание:</strong>
+</code></div></div></pre><hr><h3>2. Авторизация пользователя</h3><p><strong>POST /api/login</strong></p><p><strong>Описание:</strong>
     Авторизация пользователя.</p><p><strong>Запрос:</strong></p><pre><div class="dark bg-gray-950 rounded-md border-[0.5px] border-token-border-medium"><div class="overflow-y-auto p-4" dir="ltr"><code class="!whitespace-pre hljs language-http">POST /api/login
 Content-Type: application/json
+Accept: application/json
 </code></div></div></pre><p><strong>Тело запроса:</strong></p><pre><div class="dark bg-gray-950 rounded-md border-[0.5px] border-token-border-medium"><div class="overflow-y-auto p-4" dir="ltr"><code class="!whitespace-pre hljs language-json"><span class="hljs-punctuation">{</span>
     <span class="hljs-attr">"email"</span><span class="hljs-punctuation">:</span> <span class="hljs-string">"john@example.com"</span><span class="hljs-punctuation">,</span>
     <span class="hljs-attr">"password"</span><span class="hljs-punctuation">:</span> <span class="hljs-string">"password"</span>
@@ -123,17 +126,18 @@ Content-Type: application/json
 </code></div></div></pre><ul><li><strong>Ошибка (401 Unauthorized):</strong></li></ul><pre><div class="dark bg-gray-950 rounded-md border-[0.5px] border-token-border-medium"><div class="overflow-y-auto p-4" dir="ltr"><code class="!whitespace-pre hljs language-json"><span class="hljs-punctuation">{</span>
     <span class="hljs-attr">"message"</span><span class="hljs-punctuation">:</span> <span class="hljs-string">"These credentials do not match our records."</span>
 <span class="hljs-punctuation">}</span>
-</code></div></div></pre><hr><h3>3. Выход из системы</h3><p><strong>POST /logout</strong></p><p><strong>Описание:</strong>
+</code></div></div></pre><hr><h3>3. Выход из системы</h3><p><strong>POST /api/logout</strong></p><p><strong>Описание:</strong>
     Выход из системы для аутентифицированных пользователей.</p><p><strong>Запрос:</strong></p><pre><div class="dark bg-gray-950 rounded-md border-[0.5px] border-token-border-medium"><div class="overflow-y-auto p-4" dir="ltr"><code class="!whitespace-pre hljs language-http">POST /api/logout
 Authorization: Bearer your-jwt-token
 Content-Type: application/json
+Accept: application/json
 </code></div></div></pre><p><strong>Ответ:</strong></p><ul><li><strong>Успех (200 OK):</strong></li></ul><pre><div class="dark bg-gray-950 rounded-md border-[0.5px] border-token-border-medium"><div class="overflow-y-auto p-4" dir="ltr"><code class="!whitespace-pre hljs language-json"><span class="hljs-punctuation">{</span>
     <span class="hljs-attr">"message"</span><span class="hljs-punctuation">:</span> <span class="hljs-string">"User logged out successfully."</span>
 <span class="hljs-punctuation">}</span>
 </code></div></div></pre><ul><li><strong>Ошибка (401 Unauthorized):</strong></li></ul><pre><div class="dark bg-gray-950 rounded-md border-[0.5px] border-token-border-medium"><div class="overflow-y-auto p-4" dir="ltr"><code class="!whitespace-pre hljs language-json"><span class="hljs-punctuation">{</span>
     <span class="hljs-attr">"message"</span><span class="hljs-punctuation">:</span> <span class="hljs-string">"Unauthenticated."</span>
 <span class="hljs-punctuation">}</span>
-</code></div></div></pre><hr><h3>4. Получение списка задач</h3><p><strong>GET /tasks</strong></p><p><strong>Описание:</strong>
+</code></div></div></pre><hr><h3>4. Получение списка задач</h3><p><strong>GET /api/tasks</strong></p><p><strong>Описание:</strong>
     Получение списка всех задач для аутентифицированного пользователя.</p><p><strong>Запрос:</strong></p><pre><div class="dark bg-gray-950 rounded-md border-[0.5px] border-token-border-medium"><div class="overflow-y-auto p-4" dir="ltr"><code class="!whitespace-pre hljs language-http">GET /api/tasks
 Authorization: Bearer your-jwt-token
 </code></div></div></pre><p><strong>Ответ:</strong></p><ul><li><strong>Успех (200 OK):</strong></li></ul><pre><div class="dark bg-gray-950 rounded-md border-[0.5px] border-token-border-medium"><div class="overflow-y-auto p-4" dir="ltr"><code class="!whitespace-pre hljs language-json"><span class="hljs-punctuation">[</span>
@@ -150,10 +154,11 @@ Authorization: Bearer your-jwt-token
 </code></div></div></pre><ul><li><strong>Ошибка (401 Unauthorized):</strong></li></ul><pre><div class="dark bg-gray-950 rounded-md border-[0.5px] border-token-border-medium"><div class="overflow-y-auto p-4" dir="ltr"><code class="!whitespace-pre hljs language-json"><span class="hljs-punctuation">{</span>
     <span class="hljs-attr">"message"</span><span class="hljs-punctuation">:</span> <span class="hljs-string">"Unauthenticated."</span>
 <span class="hljs-punctuation">}</span>
-</code></div></div></pre><hr><h3>5. Создание новой задачи</h3><p><strong>POST /tasks</strong></p><p><strong>Описание:</strong>
+</code></div></div></pre><hr><h3>5. Создание новой задачи</h3><p><strong>POST /api/tasks</strong></p><p><strong>Описание:</strong>
     Создание новой задачи.</p><p><strong>Запрос:</strong></p><pre><div class="dark bg-gray-950 rounded-md border-[0.5px] border-token-border-medium"><div class="overflow-y-auto p-4" dir="ltr"><code class="!whitespace-pre hljs language-http">POST /api/tasks
 Authorization: Bearer your-jwt-token
 Content-Type: application/json
+Accept: application/json
 </code></div></div></pre><p><strong>Тело запроса:</strong></p><pre><div class="dark bg-gray-950 rounded-md border-[0.5px] border-token-border-medium"><div class="overflow-y-auto p-4" dir="ltr"><code class="!whitespace-pre hljs language-json"><span class="hljs-punctuation">{</span>
     <span class="hljs-attr">"title"</span><span class="hljs-punctuation">:</span> <span class="hljs-string">"New Task"</span><span class="hljs-punctuation">,</span>
     <span class="hljs-attr">"description"</span><span class="hljs-punctuation">:</span> <span class="hljs-string">"Description for new task"</span><span class="hljs-punctuation">,</span>
@@ -174,7 +179,7 @@ Content-Type: application/json
         <span class="hljs-attr">"team_id"</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">[</span><span class="hljs-string">"The selected team_id is invalid."</span><span class="hljs-punctuation">]</span>
     <span class="hljs-punctuation">}</span>
 <span class="hljs-punctuation">}</span>
-</code></div></div></pre><hr><h3>6. Получение информации о задаче</h3><p><strong>GET /tasks/{id}</strong></p><p><strong>Описание:</strong>
+</code></div></div></pre><hr><h3>6. Получение информации о задаче</h3><p><strong>GET /api/tasks/{id}</strong></p><p><strong>Описание:</strong>
     Получение информации о конкретной задаче.</p><p><strong>Запрос:</strong></p><pre><div class="dark bg-gray-950 rounded-md border-[0.5px] border-token-border-medium"><div class="overflow-y-auto p-4" dir="ltr"><code class="!whitespace-pre hljs language-http">GET /api/tasks/1
 Authorization: Bearer your-jwt-token
 </code></div></div></pre><p><strong>Ответ:</strong></p><ul><li><strong>Успех (200 OK):</strong></li></ul><pre><div class="dark bg-gray-950 rounded-md border-[0.5px] border-token-border-medium"><div class="overflow-y-auto p-4" dir="ltr"><code class="!whitespace-pre hljs language-json"><span class="hljs-punctuation">{</span>
@@ -188,10 +193,11 @@ Authorization: Bearer your-jwt-token
 </code></div></div></pre><ul><li><strong>Ошибка (404 Not Found):</strong></li></ul><pre><div class="dark bg-gray-950 rounded-md border-[0.5px] border-token-border-medium"><div class="overflow-y-auto p-4" dir="ltr"><code class="!whitespace-pre hljs language-json"><span class="hljs-punctuation">{</span>
     <span class="hljs-attr">"message"</span><span class="hljs-punctuation">:</span> <span class="hljs-string">"Task not found."</span>
 <span class="hljs-punctuation">}</span>
-</code></div></div></pre><hr><h3>7. Обновление информации о задаче</h3><p><strong>PUT /tasks/{id}</strong></p><p><strong>Описание:</strong>
+</code></div></div></pre><hr><h3>7. Обновление информации о задаче</h3><p><strong>PUT /api/tasks/{id}</strong></p><p><strong>Описание:</strong>
     Обновление информации о задаче.</p><p><strong>Запрос:</strong></p><pre><div class="dark bg-gray-950 rounded-md border-[0.5px] border-token-border-medium"><div class="overflow-y-auto p-4" dir="ltr"><code class="!whitespace-pre hljs language-http">PUT /api/tasks/1
 Authorization: Bearer your-jwt-token
 Content-Type: application/json
+Accept: application/json
 </code></div></div></pre><p><strong>Тело запроса:</strong></p><pre><div class="dark bg-gray-950 rounded-md border-[0.5px] border-token-border-medium"><div class="overflow-y-auto p-4" dir="ltr"><code class="!whitespace-pre hljs language-json"><span class="hljs-punctuation">{</span>
     <span class="hljs-attr">"title"</span><span class="hljs-punctuation">:</span> <span class="hljs-string">"Updated Task"</span><span class="hljs-punctuation">,</span>
     <span class="hljs-attr">"description"</span><span class="hljs-punctuation">:</span> <span class="hljs-string">"Updated description"</span><span class="hljs-punctuation">,</span>
@@ -208,17 +214,18 @@ Content-Type: application/json
 </code></div></div></pre><ul><li><strong>Ошибка (404 Not Found):</strong></li></ul><pre><div class="dark bg-gray-950 rounded-md border-[0.5px] border-token-border-medium"><div class="overflow-y-auto p-4" dir="ltr"><code class="!whitespace-pre hljs language-json"><span class="hljs-punctuation">{</span>
     <span class="hljs-attr">"message"</span><span class="hljs-punctuation">:</span> <span class="hljs-string">"Task not found."</span>
 <span class="hljs-punctuation">}</span>
-</code></div></div></pre><hr><h3>8. Удаление задачи</h3><p><strong>DELETE /tasks/{id}</strong></p><p><strong>Описание:</strong>
+</code></div></div></pre><hr><h3>8. Удаление задачи</h3><p><strong>DELETE /api/tasks/{id}</strong></p><p><strong>Описание:</strong>
     Удаление задачи.</p><p><strong>Запрос:</strong></p><pre><div class="dark bg-gray-950 rounded-md border-[0.5px] border-token-border-medium"><div class="overflow-y-auto p-4" dir="ltr"><code class="!whitespace-pre hljs language-http">DELETE /api/tasks/1
 Authorization: Bearer your-jwt-token
 </code></div></div></pre><p><strong>Ответ:</strong></p><ul><li><strong>Успех (204 No Content):</strong></li></ul><pre><div class="dark bg-gray-950 rounded-md border-[0.5px] border-token-border-medium"><div class="overflow-y-auto p-4" dir="ltr"><code class="!whitespace-pre hljs language-json"><span class="hljs-punctuation">{</span><span class="hljs-punctuation">}</span>
 </code></div></div></pre><ul><li><strong>Ошибка (404 Not Found):</strong></li></ul><pre><div class="dark bg-gray-950 rounded-md border-[0.5px] border-token-border-medium"><div class="overflow-y-auto p-4" dir="ltr"><code class="!whitespace-pre hljs language-json"><span class="hljs-punctuation">{</span>
     <span class="hljs-attr">"message"</span><span class="hljs-punctuation">:</span> <span class="hljs-string">"Task not found."</span>
 <span class="hljs-punctuation">}</span>
-</code></div></div></pre><hr><h3>9. Добавление комментария к задаче</h3><p><strong>POST /tasks/{taskId}/comments</strong></p><p><strong>Описание:</strong>
+</code></div></div></pre><hr><h3>9. Добавление комментария к задаче</h3><p><strong>POST /api/tasks/{taskId}/comments</strong></p><p><strong>Описание:</strong>
     Добавление комментария к задаче.</p><p><strong>Запрос:</strong></p><pre><div class="dark bg-gray-950 rounded-md border-[0.5px] border-token-border-medium"><div class="overflow-y-auto p-4" dir="ltr"><code class="!whitespace-pre hljs language-http">POST /api/tasks/1/comments
 Authorization: Bearer your-jwt-token
 Content-Type: application/json
+Accept: application/json
 </code></div></div></pre><p><strong>Тело запроса:</strong></p><pre><div class="dark bg-gray-950 rounded-md border-[0.5px] border-token-border-medium"><div class="overflow-y-auto p-4" dir="ltr"><code class="!whitespace-pre hljs language-json"><span class="hljs-punctuation">{</span>
     <span class="hljs-attr">"content"</span><span class="hljs-punctuation">:</span> <span class="hljs-string">"This is a comment."</span>
 <span class="hljs-punctuation">}</span>
@@ -234,7 +241,7 @@ Content-Type: application/json
         <span class="hljs-attr">"content"</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">[</span><span class="hljs-string">"The content field is required."</span><span class="hljs-punctuation">]</span>
     <span class="hljs-punctuation">}</span>
 <span class="hljs-punctuation">}</span>
-</code></div></div></pre><hr><h3>10. Получение комментариев к задаче</h3><p><strong>GET /tasks/{taskId}/comments</strong></p><p><strong>Описание:</strong>
+</code></div></div></pre><hr><h3>10. Получение комментариев к задаче</h3><p><strong>GET /api/tasks/{taskId}/comments</strong></p><p><strong>Описание:</strong>
     Получение всех комментариев к задаче.</p><p><strong>Запрос:</strong></p><pre><div class="dark bg-gray-950 rounded-md border-[0.5px] border-token-border-medium"><div class="overflow-y-auto p-4" dir="ltr"><code class="!whitespace-pre hljs language-http">GET /api/tasks/1/comments
 Authorization: Bearer your-jwt-token
 </code></div></div></pre><p><strong>Ответ:</strong></p><ul><li><strong>Успех (200 OK):</strong></li></ul><pre><div class="dark bg-gray-950 rounded-md border-[0.5px] border-token-border-medium"><div class="overflow-y-auto p-4" dir="ltr"><code class="!whitespace-pre hljs language-json"><span class="hljs-punctuation">[</span>
@@ -249,17 +256,18 @@ Authorization: Bearer your-jwt-token
 </code></div></div></pre><ul><li><strong>Ошибка (404 Not Found):</strong></li></ul><pre><div class="dark bg-gray-950 rounded-md border-[0.5px] border-token-border-medium"><div class="overflow-y-auto p-4" dir="ltr"><code class="!whitespace-pre hljs language-json"><span class="hljs-punctuation">{</span>
     <span class="hljs-attr">"message"</span><span class="hljs-punctuation">:</span> <span class="hljs-string">"Task not found."</span>
 <span class="hljs-punctuation">}</span>
-</code></div></div></pre><hr><h3>11. Удаление комментария</h3><p><strong>DELETE /comments/{id}</strong></p><p><strong>Описание:</strong>
+</code></div></div></pre><hr><h3>11. Удаление комментария</h3><p><strong>DELETE /api/comments/{id}</strong></p><p><strong>Описание:</strong>
     Удаление комментария.</p><p><strong>Запрос:</strong></p><pre><div class="dark bg-gray-950 rounded-md border-[0.5px] border-token-border-medium"><div class="overflow-y-auto p-4" dir="ltr"><code class="!whitespace-pre hljs language-http">DELETE /api/comments/1
 Authorization: Bearer your-jwt-token
 </code></div></div></pre><p><strong>Ответ:</strong></p><ul><li><strong>Успех (204 No Content):</strong></li></ul><pre><div class="dark bg-gray-950 rounded-md border-[0.5px] border-token-border-medium"><div class="overflow-y-auto p-4" dir="ltr"><code class="!whitespace-pre hljs language-json"><span class="hljs-punctuation">{</span><span class="hljs-punctuation">}</span>
 </code></div></div></pre><ul><li><strong>Ошибка (404 Not Found):</strong></li></ul><pre><div class="dark bg-gray-950 rounded-md border-[0.5px] border-token-border-medium"><div class="overflow-y-auto p-4" dir="ltr"><code class="!whitespace-pre hljs language-json"><span class="hljs-punctuation">{</span>
     <span class="hljs-attr">"message"</span><span class="hljs-punctuation">:</span> <span class="hljs-string">"Comment not found."</span>
 <span class="hljs-punctuation">}</span>
-</code></div></div></pre><hr><h3>12. Создание новой команды</h3><p><strong>POST /teams</strong></p><p><strong>Описание:</strong>
+</code></div></div></pre><hr><h3>12. Создание новой команды</h3><p><strong>POST /api/teams</strong></p><p><strong>Описание:</strong>
     Создание новой команды.</p><p><strong>Запрос:</strong></p><pre><div class="dark bg-gray-950 rounded-md border-[0.5px] border-token-border-medium"><div class="overflow-y-auto p-4" dir="ltr"><code class="!whitespace-pre hljs language-http">POST /api/teams
 Authorization: Bearer your-jwt-token
 Content-Type: application/json
+Accept: application/json
 </code></div></div></pre><p><strong>Тело запроса:</strong></p><pre><div class="dark bg-gray-950 rounded-md border-[0.5px] border-token-border-medium"><div class="overflow-y-auto p-4" dir="ltr"><code class="!whitespace-pre hljs language-json"><span class="hljs-punctuation">{</span>
     <span class="hljs-attr">"name"</span><span class="hljs-punctuation">:</span> <span class="hljs-string">"New Team"</span>
 <span class="hljs-punctuation">}</span>
@@ -273,7 +281,7 @@ Content-Type: application/json
         <span class="hljs-attr">"name"</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">[</span><span class="hljs-string">"The name field is required."</span><span class="hljs-punctuation">]</span>
     <span class="hljs-punctuation">}</span>
 <span class="hljs-punctuation">}</span>
-</code></div></div></pre><hr><h3>13. Получение списка команд</h3><p><strong>GET /teams</strong></p><p><strong>Описание:</strong>
+</code></div></div></pre><hr><h3>13. Получение списка команд</h3><p><strong>GET /api/teams</strong></p><p><strong>Описание:</strong>
     Получение списка команд пользователя.</p><p><strong>Запрос:</strong></p><pre><div class="dark bg-gray-950 rounded-md border-[0.5px] border-token-border-medium"><div class="overflow-y-auto p-4" dir="ltr"><code class="!whitespace-pre hljs language-http">GET /api/teams
 Authorization: Bearer your-jwt-token
 </code></div></div></pre><p><strong>Ответ:</strong></p><ul><li><strong>Успех (200 OK):</strong></li></ul><pre><div class="dark bg-gray-950 rounded-md border-[0.5px] border-token-border-medium"><div class="overflow-y-auto p-4" dir="ltr"><code class="!whitespace-pre hljs language-json"><span class="hljs-punctuation">[</span>
@@ -286,10 +294,11 @@ Authorization: Bearer your-jwt-token
 </code></div></div></pre><ul><li><strong>Ошибка (401 Unauthorized):</strong></li></ul><pre><div class="dark bg-gray-950 rounded-md border-[0.5px] border-token-border-medium"><div class="overflow-y-auto p-4" dir="ltr"><code class="!whitespace-pre hljs language-json"><span class="hljs-punctuation">{</span>
     <span class="hljs-attr">"message"</span><span class="hljs-punctuation">:</span> <span class="hljs-string">"Unauthenticated."</span>
 <span class="hljs-punctuation">}</span>
-</code></div></div></pre><hr><h3>14. Добавление пользователя в команду</h3><p><strong>POST /teams/{teamId}/users</strong></p><p><strong>Описание:</strong>
+</code></div></div></pre><hr><h3>14. Добавление пользователя в команду</h3><p><strong>POST /api/teams/{teamId}/users</strong></p><p><strong>Описание:</strong>
     Добавление пользователя в команду.</p><p><strong>Запрос:</strong></p><pre><div class="dark bg-gray-950 rounded-md border-[0.5px] border-token-border-medium"><div class="overflow-y-auto p-4" dir="ltr"><code class="!whitespace-pre hljs language-http">POST /api/teams/1/users
 Authorization: Bearer your-jwt-token
 Content-Type: application/json
+Accept: application/json
 </code></div></div></pre><p><strong>Тело запроса:</strong></p><pre><div class="dark bg-gray-950 rounded-md border-[0.5px] border-token-border-medium"><div class="overflow-y-auto p-4" dir="ltr"><code class="!whitespace-pre hljs language-json"><span class="hljs-punctuation">{</span>
     <span class="hljs-attr">"user_id"</span><span class="hljs-punctuation">:</span> <span class="hljs-number">2</span>
 <span class="hljs-punctuation">}</span>
@@ -302,7 +311,7 @@ Content-Type: application/json
         <span class="hljs-attr">"user_id"</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">[</span><span class="hljs-string">"The user_id field is required."</span><span class="hljs-punctuation">]</span>
     <span class="hljs-punctuation">}</span>
 <span class="hljs-punctuation">}</span>
-</code></div></div></pre><hr><h3>15. Удаление пользователя из команды</h3><p><strong>DELETE /teams/{teamId}/users/{userId}</strong></p><p><strong>Описание:</strong>
+</code></div></div></pre><hr><h3>15. Удаление пользователя из команды</h3><p><strong>DELETE /api/teams/{teamId}/users/{userId}</strong></p><p><strong>Описание:</strong>
     Удаление пользователя из команды.</p><p><strong>Запрос:</strong></p><pre><div class="dark bg-gray-950 rounded-md border-[0.5px] border-token-border-medium"><div class="overflow-y-auto p-4" dir="ltr"><code class="!whitespace-pre hljs language-http">DELETE /api/teams/1/users/2
 Authorization: Bearer your-jwt-token
 </code></div></div></pre><p><strong>Ответ:</strong></p><ul><li><strong>Успех (200 OK):</strong></li></ul><pre><div class="dark bg-gray-950 rounded-md border-[0.5px] border-token-border-medium"><div class="overflow-y-auto p-4" dir="ltr"><code class="!whitespace-pre hljs language-json"><span class="hljs-punctuation">{</span>
