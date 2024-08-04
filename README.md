@@ -42,21 +42,21 @@
 
 ## Эндпоинты
 
-* POST /register - Регистрация нового пользователя.
-* POST /login - Авторизация пользователя.
-* POST /logout - Выход из системы.
-* GET /tasks - Получение списка задач.
-* POST /tasks - Создание новой задачи.
-* GET /tasks/{id} - Получение информации о задаче.
-* PUT /tasks/{id} - Обновление задачи.
-* DELETE /tasks/{id} - Удаление задачи.
-* POST /tasks/{taskId}/comments - Добавление комментария к задаче.
-* GET /tasks/{taskId}/comments - Получение комментариев к задаче.
-* DELETE /comments/{id} - Удаление комментария.
-* POST /teams - Создание команды.
-* GET /teams - Получение списка команд.
-* POST /teams/{teamId}/users - Добавление пользователя в команду.
-* DELETE /teams/{teamId}/users/{userId} - Удаление пользователя из команды.
+* POST /api/register - Регистрация нового пользователя.
+* POST /api/login - Авторизация пользователя.
+* POST /api/logout - Выход из системы.
+* GET /api/tasks - Получение списка задач.
+* POST /api/tasks - Создание новой задачи.
+* GET /api/tasks/{id} - Получение информации о задаче.
+* PUT /api/tasks/{id} - Обновление задачи.
+* DELETE /api/tasks/{id} - Удаление задачи.
+* POST /api/tasks/{taskId}/comments - Добавление комментария к задаче.
+* GET /api/tasks/{taskId}/comments - Получение комментариев к задаче.
+* DELETE /api/comments/{id} - Удаление комментария.
+* POST /api/teams - Создание команды.
+* GET /api/teams - Получение списка команд.
+* POST /api/teams/{teamId}/users - Добавление пользователя в команду.
+* DELETE /api/teams/{teamId}/users/{userId} - Удаление пользователя из команды.
 
 ## Тестирование
 
